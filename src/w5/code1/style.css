@@ -1,0 +1,126 @@
+/* =========================================
+   공통 세팅 및 재활용 스타일
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  padding: 24px;
+  background-color: #f5f6f8;
+}
+
+.box {
+  background-color: #fff;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 재활용 가능한 기본 UI 요소 */
+.btn {
+  padding: 8px 16px;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* =========================================
+   1. 네비게이션
+   ========================================= */
+.nav {
+  display: flex;
+  justify-content: space-between; /* 로고, 메뉴, 버튼을 양끝으로 밀어내기 */
+  align-items: center; /* 수직 중앙 맞춤 */
+  background-color: #eee;
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
+.nav .logo {
+  width: 40px;
+  height: 24px;
+  background-color: #ccc; /* 이미지 없을 때 보이는 임시 배경 */
+}
+
+.nav .menu {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+/* =========================================
+   2. 검색바
+   ========================================= */
+.search-bar {
+  display: flex;
+  gap: 8px; /* 입력창과 버튼 사이 간격 */
+}
+
+.search-bar .input {
+  flex-grow: 1;
+  /* 남는 가로 공간을 인풋창이 모두 차지함 */
+}
+
+/* =========================================
+   3. 태그 래핑
+   ========================================= */
+.tag-wrap {
+  display: flex;
+  flex-wrap: wrap; /* 부모 영역이 좁아지면 자연스럽게 다음 줄로 넘어감 */
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 12px;
+  background-color: #e3e8fc;
+  color: #3b5bdb;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* =========================================
+   4. 미디어 오브젝트
+   ========================================= */
+.media-object {
+  display: flex;
+  align-items: center; /* 텍스트와 이미지의 수직 중앙을 일치시킴 */
+  gap: 16px;
+}
+
+.media-object .avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 50%;
+  flex-shrink: 0; /* 부모 공간이 좁아져도 이미지가 찌그러지지 않게 방어 */
+}
+
+.media-object .name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.media-object .desc {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}

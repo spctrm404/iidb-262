@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pen</title>
+    <!-- Noto Sans KR 폰트 불러오기 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 1. 네비게이션 (양끝 정렬) -->
+    <div class="box">
+      <h3 class="title">1. 네비게이션 (space-between)</h3>
+      <nav class="nav">
+        <img src="" alt="로고" class="logo" />
+        <ul class="menu">
+          <li>홈</li>
+          <li>메뉴</li>
+        </ul>
+        <button class="btn">로그인</button>
+      </nav>
+    </div>
+
+    <!-- 2. 검색바 (가변 너비 꽉 채우기) -->
+    <div class="box">
+      <h3 class="title">2. 검색바 (flex-grow)</h3>
+      <div class="search-bar">
+        <input type="text" class="input" placeholder="검색어를 입력하세요" />
+        <button class="btn">검색</button>
+      </div>
+    </div>
+
+    <!-- 3. 태그 래핑 (자연스러운 줄바꿈) -->
+    <div class="box">
+      <h3 class="title">3. 태그 래핑 (flex-wrap)</h3>
+      <div class="tag-wrap">
+        <span class="tag">#HTML</span>
+        <span class="tag">#CSS</span>
+        <span class="tag">#Flexbox</span>
+        <span class="tag">#Grid</span>
+        <span class="tag">#웹디자인</span>
+        <span class="tag">#프론트엔드</span>
+        <span class="tag">#반응형</span>
+      </div>
+    </div>
+
+    <!-- 4. 미디어 오브젝트 (수직 중앙 정렬) -->
+    <div class="box">
+      <h3 class="title">4. 미디어 오브젝트 (align-items: center)</h3>
+      <div class="media-object">
+        <img src="" alt="프로필 이미지" class="avatar" />
+        <div class="media-text">
+          <h4 class="name">김개발</h4>
+          <p class="desc">프론트엔드 엔지니어</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

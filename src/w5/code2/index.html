@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pen</title>
+    <!-- Noto Sans KR 폰트 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 1. 2차원 통제 및 반응형 줄바꿈 (Auto-fit & Equal Rows) -->
+    <div class="box">
+      <h3 class="title">1. 반응형 격자 및 모든 행(줄) 높이 통일</h3>
+      <div class="grid-gallery">
+        <div class="card">1. 내용이 짧은 카드</div>
+        <div class="card">
+          2. 이 카드는 내용이 굉장히 길어서 세로로 많이 늘어나게 됩니다.
+          그리드의 강력함은 여기서 발휘됩니다.
+        </div>
+        <div class="card">3. 카드</div>
+        <div class="card">4. 카드</div>
+        <div class="card">5. 두 번째 줄 시작</div>
+        <div class="card">
+          6. 첫 줄에 가장 긴 카드가 있어도, 두 번째 줄의 높이 역시 첫 줄과
+          완벽하게 똑같이 맞춰집니다. 일부러 내용을 더 많이 넣어서 압도적으로 긴
+          카드를 하나 만들어보겠습니다.
+        </div>
+        <div class="card">
+          7. Flexbox라면 줄마다 높이가 제각각이었을 것입니다.
+        </div>
+        <div class="card">8. 카드</div>
+        <div class="card">9. 카드</div>
+        <div class="card">10. 카드</div>
+        <div class="card">11. 카드</div>
+        <div class="card">12. 카드</div>
+      </div>
+    </div>
+
+    <!-- 2. 다중 칸 차지 및 엇갈린 배열 (Bento Box Spanning) -->
+    <div class="box">
+      <h3 class="title">2. 벤토박스 (다이내믹한 엇갈림 및 자동 채움)</h3>
+      <div class="bento-box">
+        <!-- 1~2번째 줄 -->
+        <div class="bento-item box1">1. 메인 통계 (2x2)</div>
+        <div class="bento-item box2">2. 가로 위젯 (2x1)</div>
+        <div class="bento-item box3">3. 미니 (1x1)</div>
+        <div class="bento-item box4">4. 미니 (1x1)</div>
+
+        <!-- 3~4번째 줄: 가운데 선을 가로지르는 box6 배치 -->
+        <div class="bento-item box5">5. 세로형 (1x2)</div>
+        <div class="bento-item box6">6. 핵심 차트 (2x2)</div>
+        <div class="bento-item box7">7. 세로형 (1x2)</div>
+
+        <!-- 5번째 줄 -->
+        <div class="bento-item box8">8. 하단 와이드 배너 (4x1)</div>
+      </div>
+    </div>
+
+    <!-- 3. 요소 겹치기 (Overlapping) - 기존과 동일 -->
+    <div class="box">
+      <h3 class="title">3. 요소 겹치기 (Grid Area Overlapping)</h3>
+      <div class="hero-banner">
+        <img src="" alt="배경 이미지" class="banner-img" />
+        <div class="banner-text">
+          <h4>강력한 CSS Grid</h4>
+          <p>Absolute 없이 텍스트를 이미지 위에 올렸습니다.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

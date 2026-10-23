@@ -1,0 +1,216 @@
+/* =========================================
+   공통 세팅 및 재활용 스타일
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  padding: 24px;
+  padding-bottom: 100px; /* 하단 fixed 버튼 여백 확보 */
+  background-color: #f5f6f8;
+}
+
+.box {
+  background-color: #fff;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  background-color: #f1f3f5;
+  padding: 12px;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
+/* 실습용 무대 및 기본 블록 */
+.demo-stage {
+  background-color: #f8f9fa;
+  border: 1px dashed #ccc;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.item {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* =========================================
+   1. static vs relative
+   ========================================= */
+.pos-relative {
+  position: relative;
+  top: 20px; /* 원래 위치에서 아래로 20px 이동 */
+  right: 30px; /* 원래 위치에서 오른쪽으로 30px 이동 */
+  background-color: #e3e8fc;
+  border-color: #3b5bdb;
+  color: #3b5bdb;
+  font-weight: 700;
+  z-index: 1;
+  /* 아래 박스와 겹칠 때 위로 올라오도록 설정 */
+}
+
+/* =========================================
+   2. relative + absolute
+   ========================================= */
+.parent-relative {
+  position: relative;
+  /* 자식(absolute)이 도망가지 못하게 기준점 선언 */
+  /* height: 320px; */
+}
+
+.badge {
+  position: absolute; /* 문서 흐름에서 이탈 */
+  background-color: #3b5bdb;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pos-absolute-top {
+  top: 16px;
+  left: 32px;
+}
+
+.pos-absolute-bottom {
+  bottom: 16px;
+  right: 16px;
+  background-color: #fa5252;
+}
+
+/* =========================================
+   3. sticky (스크롤 고정)
+   ========================================= */
+.scroll-container {
+  height: 180px;
+  overflow-y: auto; /* 내부 스크롤 생성 */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+}
+
+.scroll-text {
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.sticky-bar {
+  position: sticky;
+  bottom: 10px; /* 스크롤 시 컨테이너 최상단(0px)에 닿으면 달라붙음 */
+  background-color: #212529;
+  color: #ffc107;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.scroll-content p {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+/* =========================================
+   4. fixed (뷰포트 고정)
+   ========================================= */
+.fixed-btn {
+  position: fixed;
+  bottom: 24px; /* 브라우저 창 하단에서 24px */
+  right: 24px; /* 브라우저 창 우측에서 24px */
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* =========================================
+   5. 퍼센트(%) 기준점 차이 (정중앙 배치)
+   ========================================= */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.center-stage {
+  position: relative; /* 자식(absolute)의 기준점 */
+  height: 220px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  /* 정중앙을 눈으로 확인하기 위한 십자가 가이드선 배경 */
+  background-image:
+    linear-gradient(
+      to right,
+      transparent 49.5%,
+      #adb5bd 49.5%,
+      #adb5bd 50.5%,
+      transparent 50.5%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 49.5%,
+      #adb5bd 49.5%,
+      #adb5bd 50.5%,
+      transparent 50.5%
+    );
+}
+
+.target {
+  position: absolute;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 5-1. 부모 크기의 50%만 이동한 경우 (치우침) */
+.only-pos {
+  top: 50%;
+  left: 50%;
+  background-color: #ffe3e3;
+  border: 2px solid #fa5252;
+  color: #c92a2a;
+}
+
+/* 5-2. 자기 크기의 50%만큼 역방향 이동을 추가한 경우 (정중앙) */
+.with-transform {
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 핵심: 자기 자신 크기의 절반만큼 뒤로 당김 */
+  background-color: #d3f9d8;
+  border: 2px solid #2b8a3e;
+  color: #2b8a3e;
+}
