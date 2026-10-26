@@ -1,0 +1,379 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Noto Sans KR", sans-serif;
+  color: #202638;
+  background: #f4f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 30px 24px;
+  border-right: 1px solid #e1e5ef;
+  background: #fff;
+}
+
+.brand {
+  color: #4c5ed7;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.sidebar-heading h1,
+.preview-heading h2 {
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.sidebar-heading h1 {
+  font-size: 1.55rem;
+}
+
+.sidebar-heading p,
+.intro {
+  margin: 8px 0 0;
+  color: #687187;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.unit-input {
+  position: relative;
+}
+
+.unit-input span {
+  position: absolute;
+  top: 50%;
+  right: 38px;
+  color: #737d91;
+  font-size: 0.85rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.unit-input input {
+  padding-right: 62px;
+}
+
+select,
+input,
+textarea {
+  --padding-block: 10px;
+  --border-width: 1px;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--padding-block) 12px;
+  border: var(--border-width) solid #ccd3e1;
+  border-radius: 9px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+textarea {
+  --chrome: calc(2 * (var(--padding-block) + var(--border-width)));
+  min-height: calc(4lh + var(--chrome));
+  max-height: calc(12lh + var(--chrome));
+  resize: none;
+  field-sizing: content;
+  line-height: 1.55;
+}
+
+.field small {
+  min-height: 1.3em;
+  color: #737d91;
+  font-size: 0.78rem;
+}
+
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.delete-step:focus-visible,
+.add-step:focus-visible {
+  outline: 3px solid #a9baff;
+  outline-offset: 2px;
+}
+
+.preview {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: 56px 42px;
+}
+
+.preview-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #6877d9;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.preview-heading h2 {
+  font-size: 1.8rem;
+}
+
+.formula {
+  color: #737d91;
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.scale-panel {
+  overflow: hidden;
+  border: 1px solid #e1e5ef;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(31 43 70 / 5%);
+}
+
+.scale-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid #e9ecf3;
+}
+
+.scale-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.selected-font {
+  color: #737d91;
+  font-size: 0.82rem;
+}
+
+.step-list {
+  display: grid;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 86px;
+  padding: 18px 22px;
+}
+
+.step + .step {
+  border-top: 1px solid #edf0f5;
+}
+
+.step-number {
+  flex: 0 0 58px;
+  color: #737d91;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.sample {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  font-family: var(--sample-font-family, inherit);
+  white-space: pre-wrap;
+}
+
+.step-side {
+  display: grid;
+  flex: 0 0 96px;
+  align-items: center;
+  justify-items: stretch;
+}
+
+.step-side > * {
+  grid-area: 1 / 1;
+}
+
+.step-size {
+  color: #737d91;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  pointer-events: none;
+  transition: opacity 0.12s;
+}
+
+.add-step {
+  flex: 0 0 96px;
+  width: 96px;
+}
+
+.step-side .delete-step {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s;
+}
+
+.step:hover .step-side .delete-step,
+.step-side .delete-step:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.step:hover .step-side:has(.delete-step:not([hidden])) .step-size,
+.step-side:has(.delete-step:focus-visible) .step-size {
+  opacity: 0;
+}
+
+/* 호버가 없는 기기에서는 삭제 버튼을 크기 아래에 항상 표시 */
+@media (hover: none) {
+  .step-side {
+    gap: 6px;
+  }
+
+  .step-side > * {
+    grid-area: auto;
+  }
+
+  .step-side .delete-step {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .step:hover .step-side:has(.delete-step) .step-size {
+    opacity: 1;
+  }
+}
+
+.delete-step,
+.add-step {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid #ccd3e1;
+  border-radius: 9px;
+  background: #fff;
+  color: #35415a;
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.delete-step:hover,
+.add-step:hover {
+  border-color: #7382a2;
+  background: #f7f8fc;
+}
+
+.add-spacer {
+  flex: 1;
+}
+
+.step-add {
+  min-height: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #fafbfe;
+}
+
+.step-list > .step-add:first-child {
+  border-bottom: 1px solid #edf0f5;
+}
+
+.step-list > .step-add:last-child {
+  border-top: 1px solid #edf0f5;
+}
+
+@media (max-width: 760px) {
+  .wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 22px;
+    border-right: 0;
+    border-bottom: 1px solid #e1e5ef;
+  }
+
+  .brand,
+  .sidebar-heading {
+    grid-column: 1 / -1;
+  }
+
+  .preview {
+    padding: 36px 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .brand,
+  .sidebar-heading {
+    grid-column: auto;
+  }
+
+  .preview {
+    padding: 30px 14px;
+  }
+
+  .preview-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .preview-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .step {
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .step-number {
+    flex-basis: 44px;
+  }
+}

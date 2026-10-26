@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글자 크기 스케일</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="./script/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <aside class="sidebar" aria-label="글자 스케일 설정">
+        <a class="brand" href="#preview">Type Scale</a>
+        <div class="sidebar-heading">
+          <h1>글자 스케일</h1>
+          <p>크기와 글꼴을 조정해 보세요.</p>
+        </div>
+
+        <div class="field">
+          <label for="base-size">기준 글자 크기 (a)</label>
+          <div class="unit-input">
+            <input
+              id="base-size"
+              name="base-size"
+              type="number"
+              min="1"
+              max="500"
+              step="any"
+              value="16"
+              inputmode="decimal"
+            />
+            <span aria-hidden="true">px</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="interval">배수 (b)</label>
+          <select id="interval" name="interval">
+            <option value="1">단2도</option>
+            <option value="2">장2도</option>
+            <option value="3">단3도</option>
+            <option value="4">장3도</option>
+            <option value="5">완전4도</option>
+            <option value="6">증4도 / 감5도</option>
+            <option value="7">완전5도</option>
+            <option value="8">단6도</option>
+            <option value="9">장6도</option>
+            <option value="10">단7도</option>
+            <option value="11">장7도</option>
+          </select>
+          <small id="ratio-description" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <label for="example-text">예시문</label>
+          <textarea id="example-text" name="example-text" rows="4">
+정 참판 양반댁 규수 큰 교자 타고 혼례 치른 날
+0123456789</textarea
+          >
+        </div>
+
+        <div class="field">
+          <label for="font-family">Google Fonts</label>
+          <select id="font-family" name="font-family">
+            <option value="Noto Sans KR">Noto Sans KR</option>
+            <option value="Noto Serif KR">Noto Serif KR</option>
+            <option value="Gowun Dodum">Gowun Dodum</option>
+            <option value="Gowun Batang">Gowun Batang</option>
+            <option value="Nanum Gothic">Nanum Gothic</option>
+            <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+            <option value="IBM Plex Sans KR">IBM Plex Sans KR</option>
+            <option value="Black Han Sans">Black Han Sans</option>
+          </select>
+          <small id="font-status" aria-live="polite" hidden></small>
+        </div>
+      </aside>
+
+      <main id="preview" class="preview">
+        <header class="preview-heading">
+          <div>
+            <p class="eyebrow">LIVE PREVIEW</p>
+            <h2>타입 스케일 미리보기</h2>
+            <p class="intro">
+              설정한 글꼴과 예시문으로 스텝별 크기를 확인하세요.
+            </p>
+          </div>
+          <span class="formula">크기 = a × b<sup>스텝</sup></span>
+        </header>
+
+        <section class="scale-panel" aria-labelledby="scale-title">
+          <div class="scale-header">
+            <h3 id="scale-title">글자 샘플</h3>
+            <span id="selected-font" class="selected-font">Noto Sans KR</span>
+          </div>
+          <div id="step-list" class="step-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
