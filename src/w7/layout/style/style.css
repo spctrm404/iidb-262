@@ -1,0 +1,64 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto auto;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+
+.control {
+  position: relative;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / -1;
+
+  padding-inline: 1rem;
+  padding-block: 1rem;
+
+  &.left {
+    grid-column: 1 / span 1;
+
+    transform: translate(-100%, 0);
+
+    background: oklch(0.95 0.1 0 / 90%);
+  }
+
+  &.right {
+    grid-column: 2 / span 1;
+
+    transform: translate(100%, 0);
+
+    background: oklch(0.95 0.1 120deg / 90%);
+  }
+
+  .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    > .step,
+    > .actions {
+      flex: 0 0;
+    }
+    > .sample {
+      flex: 1 1;
+    }
+
+    > .actions {
+      display: grid;
+      > * {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+      }
+    }
+  }
+}
+
+.demo {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
