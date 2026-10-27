@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유동 글자 크기 스케일</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="./script/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrap" id="wrap">
+      <div class="demo" id="preview">
+        <header class="heading">
+          <p class="eyebrow">LIVE PREVIEW</p>
+          <h1>유동 타입 스케일</h1>
+          <p class="intro">
+            창 너비를 바꾸면 두 기준 사이에서 글자 크기가 보간됩니다.
+          </p>
+          <p class="formula">
+            크기 = lerp(a₁·b₁<sup>스텝</sup>, a₂·b₂<sup>스텝</sup>)
+          </p>
+          <p id="viewport-width" class="viewport-width"></p>
+          <p id="selected-font" class="selected-font">Noto Sans KR</p>
+        </header>
+      </div>
+
+      <div id="drawer-left" class="control left" aria-label="기준 1 설정">
+        <div class="component">
+          <label for="width-1">기준 화면 너비</label>
+          <div class="unit-input">
+            <input
+              id="width-1"
+              type="number"
+              min="1"
+              max="10000"
+              step="any"
+              value="360"
+              inputmode="decimal"
+            />
+            <span aria-hidden="true">px</span>
+          </div>
+        </div>
+        <div class="component">
+          <label for="base-size-1">기준 글자 크기</label>
+          <div class="unit-input">
+            <input
+              id="base-size-1"
+              type="number"
+              min="1"
+              max="500"
+              step="any"
+              value="16"
+              inputmode="decimal"
+            />
+            <span aria-hidden="true">px</span>
+          </div>
+        </div>
+        <div class="component">
+          <label for="interval-1">배수</label>
+          <select id="interval-1"></select>
+          <small id="ratio-description-1" aria-live="polite"></small>
+        </div>
+      </div>
+
+      <div id="drawer-right" class="control right" aria-label="기준 2 설정">
+        <div class="component">
+          <label for="width-2">기준 화면 너비</label>
+          <div class="unit-input">
+            <input
+              id="width-2"
+              type="number"
+              min="1"
+              max="10000"
+              step="any"
+              value="1440"
+              inputmode="decimal"
+            />
+            <span aria-hidden="true">px</span>
+          </div>
+        </div>
+        <div class="component">
+          <label for="base-size-2">기준 글자 크기</label>
+          <div class="unit-input">
+            <input
+              id="base-size-2"
+              type="number"
+              min="1"
+              max="500"
+              step="any"
+              value="20"
+              inputmode="decimal"
+            />
+            <span aria-hidden="true">px</span>
+          </div>
+        </div>
+        <div class="component">
+          <label for="interval-2">배수</label>
+          <select id="interval-2"></select>
+          <small id="ratio-description-2" aria-live="polite"></small>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="drawer-toggle left"
+      type="button"
+      data-drawer="left"
+      aria-controls="drawer-left"
+      aria-expanded="false"
+    >
+      기준 1
+    </button>
+    <button
+      class="drawer-toggle right"
+      type="button"
+      data-drawer="right"
+      aria-controls="drawer-right"
+      aria-expanded="false"
+    >
+      기준 2
+    </button>
+
+    <footer class="common" aria-label="공통 설정">
+      <div class="component grow">
+        <label for="example-text">예시문</label>
+        <textarea id="example-text" rows="2">
+정 참판 양반댁 규수 큰 교자 타고 혼례 치른 날
+0123456789</textarea
+        >
+      </div>
+      <div class="component">
+        <label for="preview-width-number">미리보기 너비</label>
+        <div class="width-control">
+          <input
+            id="preview-width-range"
+            type="range"
+            min="100"
+            max="1920"
+            step="1"
+            aria-label="미리보기 너비 슬라이더"
+          />
+          <div class="unit-input">
+            <input id="preview-width-number" type="number" min="100" step="1" />
+            <span aria-hidden="true">px</span>
+          </div>
+        </div>
+        <label class="check">
+          <input id="preview-width-fit" type="checkbox" checked />
+          창 너비에 맞춤
+        </label>
+      </div>
+      <div class="component">
+        <label for="font-family">Google Fonts</label>
+        <select id="font-family">
+          <option value="Noto Sans KR">Noto Sans KR</option>
+          <option value="Noto Serif KR">Noto Serif KR</option>
+          <option value="Gowun Dodum">Gowun Dodum</option>
+          <option value="Gowun Batang">Gowun Batang</option>
+          <option value="Nanum Gothic">Nanum Gothic</option>
+          <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+          <option value="IBM Plex Sans KR">IBM Plex Sans KR</option>
+          <option value="Black Han Sans">Black Han Sans</option>
+        </select>
+        <small id="font-status" aria-live="polite" hidden></small>
+      </div>
+    </footer>
+  </body>
+</html>

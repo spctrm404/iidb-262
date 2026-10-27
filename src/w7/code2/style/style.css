@@ -1,0 +1,386 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Noto Sans KR", sans-serif;
+  color: #202638;
+  background: #f4f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --common-height: 10.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* 좌/우 패널은 정확히 반반이고, 미리보기(.demo)는 그 뒤 전체 폭에 깔린다 */
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  column-gap: 0;
+  row-gap: 0;
+  min-height: 100vh;
+  padding-bottom: var(--common-height);
+  overflow-x: clip;
+}
+
+.demo {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .heading {
+    padding: 2.5rem 1.5rem 1rem;
+  }
+
+  .heading h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: -0.04em;
+  }
+
+  .heading p {
+    margin: 0.5rem 0 0;
+  }
+
+  .row {
+    container-type: inline-size;
+    align-self: center;
+    flex: 0 0 auto;
+    width: var(--preview-width, 100%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 4.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgb(31 43 70 / 8%);
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgb(31 43 70 / 6%);
+
+    > .sample {
+      margin-left: 1.5rem;
+    }
+
+    > .current-size {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  color: #6877d9;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.intro {
+  color: #687187;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.formula,
+.selected-font {
+  color: #737d91;
+  font-size: 0.86rem;
+}
+
+.viewport-width {
+  color: #4c5ed7;
+  font-size: 0.86rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sample {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  font-family: var(--sample-font-family, inherit);
+  white-space: pre-wrap;
+}
+
+.current-size {
+  flex: 0 0 auto;
+  color: #737d91;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.control {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / -1;
+  min-width: 0;
+  visibility: hidden;
+  transition:
+    transform 0.3s ease,
+    visibility 0s 0.3s;
+
+  &.left {
+    grid-column: 1 / span 1;
+    transform: translate(-100%, 0);
+    background: oklch(0.95 0.1 0 / 90%);
+  }
+
+  &.right {
+    grid-column: 2 / span 1;
+    transform: translate(100%, 0);
+    background: oklch(0.95 0.1 120deg / 90%);
+  }
+
+  &.open {
+    visibility: visible;
+    transform: none;
+    transition:
+      transform 0.3s ease,
+      visibility 0s;
+  }
+
+  > * {
+    padding-inline: 1.5rem;
+  }
+
+  > .component {
+    align-content: center;
+    padding-block: 0.75rem;
+  }
+
+  > .line,
+  > .add-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgb(31 43 70 / 8%);
+  }
+
+  > .line {
+    min-height: 4.5rem;
+    padding-block: 0.75rem;
+  }
+
+  > .add-line {
+    justify-content: center;
+    padding-block: 0.5rem;
+  }
+
+  .step {
+    flex: 0 0 2.5rem;
+    color: #5b657b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sample {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .size {
+    flex: 0 0 auto;
+    color: #5b657b;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+}
+
+.component {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.component label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.component small {
+  min-height: 1.3em;
+  color: #737d91;
+  font-size: 0.78rem;
+}
+
+.unit-input {
+  position: relative;
+}
+
+.unit-input span {
+  position: absolute;
+  top: 50%;
+  right: 2.4rem;
+  color: #737d91;
+  font-size: 0.85rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.unit-input input {
+  padding-right: 3.9rem;
+}
+
+select,
+input,
+textarea {
+  --padding-block: 10px;
+  --border-width: 1px;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--padding-block) 12px;
+  border: var(--border-width) solid #ccd3e1;
+  border-radius: 9px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+textarea {
+  --chrome: calc(2 * (var(--padding-block) + var(--border-width)));
+  height: calc(2lh + var(--chrome));
+  resize: none;
+  line-height: 1.55;
+}
+
+button {
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid #ccd3e1;
+  border-radius: 9px;
+  background: #fff;
+  color: #35415a;
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #7382a2;
+    background: #f7f8fc;
+  }
+
+  &[hidden] {
+    display: block;
+    visibility: hidden;
+  }
+}
+
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid #a9baff;
+  outline-offset: 2px;
+}
+
+.drawer-toggle {
+  position: fixed;
+  top: 40%;
+  z-index: 20;
+  padding: 14px 10px;
+  font-weight: 700;
+  writing-mode: vertical-rl;
+  box-shadow: 0 4px 12px rgb(31 43 70 / 10%);
+
+  &.left {
+    left: 0;
+    border-left: 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  &.right {
+    right: 0;
+    border-right: 0;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+/* 하단 고정 공통 컨트롤 */
+.common {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  height: var(--common-height);
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e1e5ef;
+  background: #fff;
+  box-shadow: 0 -4px 16px rgb(31 43 70 / 8%);
+
+  .component {
+    width: 15rem;
+  }
+
+  .component.grow {
+    flex: 1;
+    width: auto;
+  }
+}
+
+.width-control {
+  display: grid;
+  grid-template-columns: 1fr 7rem;
+  align-items: center;
+  gap: 0.75rem;
+
+  input[type="range"] {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+
+  input {
+    width: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --common-height: 14rem;
+  }
+
+  .common {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .common .component {
+    width: 100%;
+  }
+
+  .control > *,
+  .demo .row,
+  .demo .heading {
+    padding-inline: 0.75rem;
+  }
+
+  .control .step {
+    flex-basis: 1.8rem;
+  }
+}
