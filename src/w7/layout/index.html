@@ -5,160 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/layouts.css" />
     <link rel="stylesheet" href="./style/style.css" />
+    <script src="./script/script.js" defer></script>
   </head>
   <body>
-    <div class="wrap">
-      <div class="control left">
-        <div class="component">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <input type="number" />
-        </div>
-        <div class="component">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <input type="number" />
-        </div>
-        <div class="component">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <input type="number" />
-        </div>
-        <div class="line">
-          <div class="step">+1</div>
-          <div class="sample">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-            velit.
+    <div class="side-panels" data-lines="4">
+      <div class="side-panel left">
+        <div class="switcher-container panel-config">
+          <div class="switcher">
+            <div class="component">
+              <label class="component-label" for="base-width">기준너비</label>
+              <div class="number-control">
+                <input id="base-width" type="number" value="16" step="1" />
+                <span class="unit">px</span>
+                <div class="number-buttons">
+                  <button
+                    class="number-step"
+                    type="button"
+                    data-step="1"
+                    aria-label="기준너비 1 증가"
+                  >
+                    <span class="step-icon">
+                      <img src="./assets/step-up.svg" alt="" />
+                    </span>
+                  </button>
+                  <button
+                    class="number-step"
+                    type="button"
+                    data-step="-1"
+                    aria-label="기준너비 1 감소"
+                  >
+                    <span class="step-icon">
+                      <img src="./assets/step-down.svg" alt="" />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <label class="component-label" for="base-font-size">
+                기준 글자 크기 (a)
+              </label>
+              <div class="number-control">
+                <input
+                  id="base-font-size"
+                  type="number"
+                  value="16"
+                  step="1"
+                />
+                <span class="unit">px</span>
+                <div class="number-buttons">
+                  <button
+                    class="number-step"
+                    type="button"
+                    data-step="1"
+                    aria-label="기준 글자 크기 1 증가"
+                  >
+                    <span class="step-icon">
+                      <img src="./assets/step-up.svg" alt="" />
+                    </span>
+                  </button>
+                  <button
+                    class="number-step"
+                    type="button"
+                    data-step="-1"
+                    aria-label="기준 글자 크기 1 감소"
+                  >
+                    <span class="step-icon">
+                      <img src="./assets/step-down.svg" alt="" />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="component">
+              <div class="component-label-row">
+                <label class="component-label" for="scale-select">
+                  배수 (b)
+                </label>
+                <span class="component-meta">16/15</span>
+              </div>
+              <div class="scale-control">
+                <select id="scale-select" aria-label="배수">
+                  <option value="1.7778">1.7778 단7도</option>
+                </select>
+                <span class="dropdown-icon">
+                  <img src="./assets/dropdown.svg" alt="" />
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="actions">
-            <div class="size">0.1234rem</div>
-            <button class="remove">삭제</button>
-          </div>
         </div>
-        <div class="line">
-          <div class="step">+1</div>
-          <div class="sample">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-            velit.
+        <div class="scale-list">
+          <div class="scale-row">
+            <div class="scale-step">+1</div>
+            <div class="scale-sample" style="font-size: 12.8px">
+              <p>정 참판 양반댁 규수 큰 교자 타고 혼례 치른 날</p>
+              <p>0123456789</p>
+            </div>
+            <div class="scale-actions">
+              <div class="scale-size">
+                <span>000.000000</span>
+                <span>px</span>
+                <span>00.000000</span>
+                <span>rem</span>
+              </div>
+            </div>
           </div>
-          <div class="actions">
-            <div class="size">0.1234rem</div>
-            <button class="remove">삭제</button>
+          <div class="scale-row">
+            <div class="scale-step">0</div>
+            <div class="scale-sample">
+              <p>정 참판 양반댁 규수 큰 교자 타고 혼례 치른 날</p>
+              <p>0123456789</p>
+            </div>
+            <div class="scale-actions">
+              <div class="scale-size">
+                <span>000.000000</span>
+                <span>px</span>
+                <span>00.000000</span>
+                <span>rem</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="line">
-          <div class="step">+1</div>
-          <div class="sample">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-            velit.
+          <div class="scale-row">
+            <div class="scale-step">+2</div>
+            <div class="scale-sample" style="font-size: 20px">
+              <p>정 참판 양반댁 규수 큰 교자 타고 혼례 치른 날</p>
+              <p>0123456789</p>
+            </div>
+            <div class="scale-actions">
+              <div class="scale-size">
+                <span>000.000000</span>
+                <span>px</span>
+                <span>00.000000</span>
+                <span>rem</span>
+              </div>
+            </div>
           </div>
-          <div class="actions">
-            <div class="size">0.1234rem</div>
-            <button class="remove">삭제</button>
+          <div class="scale-row">
+            <div class="scale-step">+3</div>
+            <div class="scale-sample" style="font-size: 25px">
+              <p>정 참판 양반댁 규수 큰 교자 타고 혼례 치른 날</p>
+              <p>0123456789</p>
+            </div>
+            <div class="scale-actions">
+              <div class="scale-size">
+                <span>000.000000</span>
+                <span>px</span>
+                <span>00.000000</span>
+                <span>rem</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="control right">
-        <div class="component">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <input type="number" />
-        </div>
-        <div class="component">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <input type="number" />
-        </div>
-        <div class="component">
-          <h3>Lorem ipsum dolor sit amet.</h3>
-          <input type="number" />
-        </div>
-        <div class="line">
-          <div class="step">+1</div>
-          <div class="sample">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-            velit.
-          </div>
-          <div class="actions">
-            <div class="size">0.1234rem</div>
-            <button class="remove">삭제</button>
-          </div>
-        </div>
-        <div class="line">
-          <div class="step">+1</div>
-          <div class="sample">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-            velit.
-          </div>
-          <div class="actions">
-            <div class="size">0.1234rem</div>
-            <button class="remove">삭제</button>
-          </div>
-        </div>
-        <div class="line">
-          <div class="step">+1</div>
-          <div class="sample">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-            velit.
-          </div>
-          <div class="actions">
-            <div class="size">0.1234rem</div>
-            <button class="remove">삭제</button>
-          </div>
-        </div>
-      </div>
-      <div class="demo">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-        doloribus quisquam illo distinctio consequuntur animi eligendi
-        temporibus autem ducimus? Id et amet non iste quia ipsa, harum dolorem
-        tenetur molestias eum temporibus eius, tempore quidem at! Reprehenderit
-        assumenda tenetur qui odio voluptatum? Tempore amet velit quo, explicabo
-        error repudiandae, iste est obcaecati veritatis fugit laboriosam minus
-        fuga sit nulla non, excepturi corrupti vitae doloremque. Numquam quaerat
-        vitae dolor sunt cum obcaecati aliquam veniam! Accusamus sapiente
-        adipisci facere excepturi assumenda unde dolor libero eius fugiat sit
-        vel voluptatibus non, ipsum alias suscipit ullam inventore deleniti
-        blanditiis molestiae repellendus provident quaerat minima laudantium
-        animi! Illum optio distinctio porro reiciendis quia? Obcaecati assumenda
-        hic voluptatem quisquam ratione? Nobis veniam aperiam illo harum!
-        Labore, quisquam tenetur non, repellendus repudiandae excepturi quam
-        ullam, culpa omnis voluptates dolor quibusdam? Veritatis culpa quo
-        incidunt id soluta autem reiciendis facilis nostrum dolores nisi qui ex
-        velit ducimus maiores, et dicta odit expedita quis at magni eaque
-        quidem, obcaecati unde blanditiis. In tenetur sed recusandae quia ullam
-        temporibus quisquam ratione, rem nihil quis atque nam ea voluptatum,
-        corrupti saepe necessitatibus eos expedita molestiae perspiciatis nemo a
-        impedit? Vel facere quisquam tempore tempora? Suscipit corporis libero
-        fugiat perspiciatis neque nobis delectus dignissimos voluptatum, alias,
-        explicabo labore at. Eos iste a itaque nisi quibusdam sunt accusamus.
-        Velit libero deleniti eius asperiores quos totam autem pariatur, dolor
-        eligendi eveniet, assumenda et quis veniam, aperiam inventore optio quam
-        explicabo animi nulla beatae. Est tempore natus inventore, libero
-        deleniti voluptates! Facere voluptatibus doloribus quibusdam illum
-        possimus pariatur fugit corrupti quae repellat voluptas, voluptatum
-        culpa consectetur, officia adipisci nisi alias vero quam atque inventore
-        quasi voluptatem veritatis ex! Quae, incidunt adipisci. Eligendi nobis
-        velit illo sit tenetur reprehenderit, odio maxime illum aperiam
-        architecto sed itaque, reiciendis error, qui doloribus. Ipsam suscipit
-        ducimus dicta asperiores reiciendis numquam, ipsa unde quos atque
-        laborum dignissimos tempore repudiandae error. Beatae enim dignissimos
-        fugiat suscipit aspernatur harum debitis iure vitae provident maiores.
-        Consequuntur adipisci obcaecati dolorem maiores possimus accusantium
-        dicta quis illo non ex quisquam esse quos, qui ad at. Laudantium nisi
-        odit hic ducimus dolore, id dolor in amet cum fugit aliquam? Delectus
-        sunt, architecto magni aperiam accusamus aliquid expedita vitae! A
-        officiis ex error voluptatum obcaecati magni rerum veniam minima nemo
-        sint illum incidunt molestias, sed dolor quaerat eius! Sunt in porro
-        tempora odit, eum nemo dignissimos cum natus nulla alias, ducimus
-        numquam itaque, eius soluta ex accusamus possimus quas sed ipsum.
-        Veritatis laborum molestias a earum illo eos repudiandae cum asperiores
-        minima rerum voluptates temporibus possimus officiis debitis doloremque
-        modi alias in iste facilis corporis amet, accusantium architecto.
-        Accusantium recusandae veritatis porro eveniet animi repellat earum,
-        unde in dicta, minima dolorum, quis perspiciatis doloremque! Vero culpa,
-        libero repellendus consequuntur ullam minima fugiat doloremque
-        consequatur fuga. Iure saepe quibusdam mollitia rerum non illo in vero
-        aliquam blanditiis sapiente ipsam incidunt quos voluptatibus distinctio
-        amet quae inventore dolor nemo natus dolore, consequatur debitis!
-        Corrupti, quaerat cupiditate facere a voluptatem enim iste qui impedit,
-        inventore, quas accusamus molestias sit doloribus.
-      </div>
+    </div>
+    <div class="demo-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat doloribus
+      quisquam illo distinctio consequuntur animi eligendi temporibus autem
+      ducimus? Id et amet non iste quia ipsa, harum dolorem tenetur molestias
+      eum temporibus eius, tempore quidem at! Reprehenderit assumenda tenetur
+      qui odio voluptatum? Tempore amet velit quo, explicabo error repudiandae,
+      iste est obcaecati veritatis fugit laboriosam minus fuga sit nulla non,
+      excepturi corrupti vitae doloremque. Numquam quaerat vitae dolor sunt cum
+      obcaecati aliquam veniam! Accusamus sapiente adipisci facere excepturi
+      assumenda unde dolor libero eius fugiat sit vel voluptatibus non, ipsum
+      alias suscipit ullam inventore deleniti blanditiis molestiae repellendus
+      provident quaerat minima laudantium animi! Illum optio distinctio porro
+      reiciendis quia? Obcaecati assumenda hic voluptatem quisquam ratione?
+      Nobis veniam aperiam illo harum! Labore, quisquam tenetur non, repellendus
+      repudiandae excepturi quam ullam, culpa omnis voluptates dolor quibusdam?
+      Veritatis culpa quo incidunt id soluta autem reiciendis facilis nostrum
+      dolores nisi qui ex velit ducimus maiores, et dicta odit expedita quis at
+      magni eaque quidem, obcaecati unde blanditiis. In tenetur sed recusandae
+      quia ullam temporibus quisquam ratione, rem nihil quis atque nam ea
+      voluptatum, corrupti saepe necessitatibus eos expedita molestiae
+      perspiciatis nemo a impedit? Vel facere quisquam tempore tempora? Suscipit
+      corporis libero fugiat perspiciatis neque nobis delectus dignissimos
+      voluptatum, alias, explicabo labore at. Eos iste a itaque nisi quibusdam
+      sunt accusamus. Velit libero deleniti eius asperiores quos totam autem
+      pariatur, dolor eligendi eveniet, assumenda et quis veniam, aperiam
+      inventore optio quam explicabo animi nulla beatae. Est tempore natus
+      inventore, libero deleniti voluptates! Facere voluptatibus doloribus
+      quibusdam illum possimus pariatur fugit corrupti quae repellat voluptas,
+      voluptatum culpa consectetur, officia adipisci nisi alias vero quam atque
+      inventore quasi voluptatem veritatis ex! Quae, incidunt adipisci. Eligendi
+      nobis velit illo sit tenetur reprehenderit, odio maxime illum aperiam
+      architecto sed itaque, reiciendis error, qui doloribus. Ipsam suscipit
+      ducimus dicta asperiores reiciendis numquam, ipsa unde quos atque laborum
+      dignissimos tempore repudiandae error. Beatae enim dignissimos fugiat
+      suscipit aspernatur harum debitis iure vitae provident maiores.
+      Consequuntur adipisci obcaecati dolorem maiores possimus accusantium dicta
+      quis illo non ex quisquam esse quos, qui ad at. Laudantium nisi odit hic
+      ducimus dolore, id dolor in amet cum fugit aliquam? Delectus sunt,
+      architecto magni aperiam accusamus aliquid expedita vitae! A officiis ex
+      error voluptatum obcaecati magni rerum veniam minima nemo sint illum
+      incidunt molestias, sed dolor quaerat eius! Sunt in porro tempora odit,
+      eum nemo dignissimos cum natus nulla alias, ducimus numquam itaque, eius
+      soluta ex accusamus possimus quas sed ipsum. Veritatis laborum molestias a
+      earum illo eos repudiandae cum asperiores minima rerum voluptates
+      temporibus possimus officiis debitis doloremque modi alias in iste facilis
+      corporis amet, accusantium architecto. Accusantium recusandae veritatis
+      porro eveniet animi repellat earum, unde in dicta, minima dolorum, quis
+      perspiciatis doloremque! Vero culpa, libero repellendus consequuntur ullam
+      minima fugiat doloremque consequatur fuga. Iure saepe quibusdam mollitia
+      rerum non illo in vero aliquam blanditiis sapiente ipsam incidunt quos
+      voluptatibus distinctio amet quae inventore dolor nemo natus dolore,
+      consequatur debitis! Corrupti, quaerat cupiditate facere a voluptatem enim
+      iste qui impedit, inventore, quas accusamus molestias sit doloribus.
     </div>
   </body>
 </html>
